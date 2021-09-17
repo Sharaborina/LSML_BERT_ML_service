@@ -25,4 +25,5 @@ Client: Telegram Bot
 
 
 4. Chat Bot name: LSML2_final_project_Sharaborina
-To run the bot: 1) clone the repository 2) open folder LSML_BERT_ML_service 3) run this command: docker-compose build && docker-compose up  4) find the bot  5) type command /start 6) type sentence (for example, "My [MASK] is so cute.")
+To run the bot: 1) clone the repository 2) open folder LSML_BERT_ML_service 3) run this command: docker-compose build && docker-compose up  
+4) find the bot  5) type command /start 6) type sentence (for example, "My [MASK] is so cute.")
