@@ -5,7 +5,7 @@ Project documentation
 
 
 
-1.This ML-service uses a pretrained BERT model, which predicts a masked word.
+1.This ML-service uses a pretrained BERT model (BertForMaskedLM), which predicts a masked word.
 (BERT: Bidirectional Encoder Representations from Transformers. It’s a language representation model created by Google researchers)
 
 Problem statement: to find out what word can be hidden behind the word "MASK" (a special token).
