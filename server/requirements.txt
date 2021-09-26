@@ -1,8 +1,0 @@
-Flask
-pandas
-datetime
-requests
-Flask
-celery
-redis
-transformers[torch]
