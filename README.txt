@@ -6,6 +6,13 @@ Project documentation
 5. how to use the HTML service
 
 
+# 0. Intallation and Run.
+first of all, you need to clone this repository and then download the model from the [link](
+https://drive.google.com/drive/folders/1j-WzXAzUQ9jHB4cI8eFyTV8PAyituDCN?usp=sharing) a `service/mymodel/file pytorch_model.bin` and put it inside service/mymodel/
+```
+docker-compose build && docker-compose up
+```
+
 # 1. This ML-service uses a pretrained BERT model (BertForMaskedLM), which predicts a masked word.
 (BERT: Bidirectional Encoder Representations from Transformers. It’s a language representation model created by Google researchers)
 
