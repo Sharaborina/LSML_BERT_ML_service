@@ -47,4 +47,6 @@ To run the bot:
 6) type sentence (for example, "My [MASK] is so cute.")
 
 
-# 5. After running the docker you can check HTML frontend part using this link: http://localhost:4000/
+# 5. It was written a simple HTML front end. In the input form user should enter a masked text.
+After running the docker you can check HTML frontend part using this link: http://localhost:4000/
+The service which is responsible for the html frontend is called client-html_frontend.
