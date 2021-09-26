@@ -27,9 +27,11 @@ services:
 
     build: server/
 
+
     # Command to run after image creation.
     # The following command means running "python ./server.py".
 #    command: /server/launch-server.sh server.py
+
     command: python3 /server/server.py
 
     # Remember that the port in 'server / server.py' is 1234.
@@ -41,8 +43,8 @@ services:
     # 1234 containers (since it is on this port that the server
     # waiting for requests).
 
-    ports:
-      - 1234:1234
+    #ports:
+    #  - 1234:1234
 
     volumes:
       - type: bind
@@ -52,30 +54,60 @@ services:
   # Second service (container): client.
   # This service is named 'client'.
 
-  client:
+
+  client-telegram:
     # Here 'client / matches the path to the folder that contains
     # Dockerfile for the client side of the system.
 
-    build: client/
+    build: client-telegram/
 
     # Command to run after image creation.
     # The following command means running "python ./client.py".
- 
-    command: python3 /client/client.py
+
+    command: python3 /client-telegram/client-telegram.py
 
     # The 'network_mode' keyword is used to describe the type of network.
     # Here we indicate that the container can access the 'localhost' of the computer.
-    
-    network_mode: host
 
-    # The 'depends_on' keyword allows you to specify whether the service should
-    # before starting, wait for other services to be ready to run.
-    # We want the 'client' service to wait until the 'server' service is ready.
- 
+    #network_mode: host
+
+    # Ключевое слово 'depends_on' позволяет указывать, должен ли сервис,
+    # прежде чем запуститься, ждать, когда будут готовы к работе другие сервисы.
+    # Нам нужно, чтобы сервис 'client' дождался бы готовности к работе сервиса 'server'.
+
     depends_on:
       - server
     volumes:
       - type: bind
-        source: ./client
-        target: /client/
-#      - ./client:/client
+        source: ./client-telegram
+        target: /client-telegram/
+
+
+  client-html_frontend:
+    # Here 'client / matches the path to the folder that contains
+    # Dockerfile for the client side of the system.
+
+    build: client-html_frontend/
+
+    # Command to run after image creation.
+    # The following command means running "python ./client.py".
+
+    command: python3 /client-html_frontend/client-html.py
+
+    # The 'network_mode' keyword is used to describe the type of network.
+    # Here we indicate that the container can access the 'localhost' of the computer.
+
+    #network_mode: host
+
+    # The 'depends_on' keyword allows you to specify whether the service should
+    # before starting, wait for other services to be ready to run.
+    # We want the 'client' service to wait until the 'server' service is ready.
+
+    ports:
+      - 4000:4000
+    depends_on:
+      - server
+    volumes:
+     - type: bind
+       source: ./client-html_frontend
+       target: /client-html_frontend/
